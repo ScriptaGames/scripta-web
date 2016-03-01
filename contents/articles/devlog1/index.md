@@ -25,14 +25,16 @@ that!
 
 ----
 
-![zorbio image](00.png)
-![zorbio image](01.jpg)
-![zorbio image](02.jpg)
-![zorbio image](03.png)
-![zorbio image](04.png)
-![zorbio image](05.png)
-![zorbio image](06.png)
-![zorbio image](07.png)
-![zorbio image](08.png)
-![zorbio image](09.png)
-![zorbio image](10.png)
+<div class="gallery">
+    <img src="00.png" alt="zorbio image" />
+    <img src="01.jpg" alt="zorbio image" />
+    <img src="02.jpg" alt="zorbio image" />
+    <img src="03.png" alt="zorbio image" />
+    <img src="04.png" alt="zorbio image" />
+    <img src="05.png" alt="zorbio image" />
+    <img src="06.png" alt="zorbio image" />
+    <img src="07.png" alt="zorbio image" />
+    <img src="08.png" alt="zorbio image" />
+    <img src="09.png" alt="zorbio image" />
+    <img src="10.png" alt="zorbio image" />
+</div>

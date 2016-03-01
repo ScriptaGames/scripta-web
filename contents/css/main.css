@@ -423,3 +423,10 @@ code.lang-markdown .bullet {
     margin-bottom: 1em;
   }
 }
+
+.gallery img:not(:last-child) {
+    margin-bottom: 10px;
+}
+.gallery img {
+    outline: 1px solid darkgrey;
+}
