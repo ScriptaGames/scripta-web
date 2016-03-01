@@ -17,5 +17,3 @@ make changes.  They show up instantly. :D
 ## Deployment
 
     make deploy
-
-[Wintersmith](https://github.com/jnordberg/wintersmith#quick-start).
