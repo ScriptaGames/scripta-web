@@ -6,7 +6,14 @@ template: article.jade
 tags: devlogs, alpha
 ---
 
-Hello Zorbians!  We'll be posting Zorbio development updates here on this blog.
+Hello Zorbians!  This is the first devlog for our new game, Zorbio!
+
+Zorbio is a a web-based 3D eat-em-up.  It's got multiplayers.  It's got WebGLs.
+It has *shapes*!  [Play now!](http://zor.bio)
+
+----
+
+We'll be posting Zorbio development updates here on this blog.
 The game just entered alpha and is under rapid development.  Expect patch notes
 and dev thoughts.
 
