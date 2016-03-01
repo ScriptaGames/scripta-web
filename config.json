@@ -1,0 +1,27 @@
+{
+  "locals": {
+    "url": "http://localhost:8080",
+    "name": "Scripta Blog",
+    "owner": "Scripta, Inc",
+    "description": "Development updates on Zorbio!"
+  },
+  "plugins": [
+    "./plugins/paginator.coffee",
+    "wintersmith-tag"
+  ],
+  "require": {
+    "moment": "moment",
+    "_": "underscore",
+    "typogr": "typogr"
+  },
+  "jade": {
+    "pretty": true
+  },
+  "markdown": {
+    "smartLists": true,
+    "smartypants": true
+  },
+  "paginator": {
+    "perPage": 3
+  }
+}
