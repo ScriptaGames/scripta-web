@@ -1,9 +1,9 @@
 {
   "locals": {
     "url": "http://localhost:8080",
-    "name": "Scripta Blog",
+    "name": "Scripta",
     "owner": "Scripta, Inc",
-    "description": "Development updates on Zorbio!"
+    "description": "Games for the Modern Web"
   },
   "plugins": [
     "./plugins/paginator.coffee",
