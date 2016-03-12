@@ -3,7 +3,7 @@
 ## Dev instructions
 
     npm install -g wintersmith
-    git clone https://github.com/ScriptaGames/ScriptaGames.github.io scripta.co
+    git clone https://github.com/ScriptaGames/scripta-web scripta-web
     cd scripta.co
     npm install
     wintersmith preview
