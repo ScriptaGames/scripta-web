@@ -6,45 +6,49 @@ template: article.jade
 tags: square-off, ludum-dare, ld35
 ---
 
-For the first time, [Jared][jared] and [I][me] participated in [Ludum
-Dare][ld]!  Over the last weekend, we built a videogame, called **Square Off**,
-from start to finish.  I would love to tell you all about it...
+[Jared][jared] and [I][me] participated in our first [Ludum Dare][ld]!  Over
+the last weekend, we built a videogame, called **Square Off**, from start to
+finish.
 
 But first, [Play it!][sqoff]
 
 ----
 
-And then, [Rate it!][ldsq]
+[Rate it!][ldsq]
 
 [![screenshot 1](ss1.png)][sqoff]
 
-Now, here are some of my first impressions of the competition.
+Ludum Dare is a "videogame jam"; a friendly competition where developers create
+a videogame from scratch in just a few days.  Here are some of my first
+impressions of the competition:
 
 ## Planning
 
-Planning ahead is difficult, because Ludum Dare announces a theme at the start
-of the competition.  I'd thought of a game idea the week before and sketched
-out some notes.  Minor details aside, the game turned out almost exactly like
-the notes!
+Knowing we'd be under a tremendous time crunch, I sketched out a game idea the
+week before.  I expected the concept to change a lot, but weirdly the game
+turned out almost exactly like the sketches!
 
 ![picture of squareoff notebook](notes1.jpg)
 
 ![picture of squareoff notebook](notes2.jpg)
 
-Unfortunately, we weren't able to integrate the theme, *shapeshifting*, into
-the game.  Fortunately, the theme is optional!
+Planning ahead was difficult because Ludum Dare announces the theme at the
+start of each competition.  Submissions are encouged to use the theme in their
+designs.  This time, the theme was *shapeshifting*.  Unfortunately, we didn't
+think of a way to adapt the game to fit the theme, so we went ahead with the
+original design.  Fortunately, the theme is optional!
 
 ## Multiplayer is hard
 
 Multiplayer games seem to be pretty rare in game jams, probably due to the
-difficulty.  Creating a multiplayer server is a lot of work, but more
-importantly it's work that the people judging your game can't *see*.
+added complexity.  Creating a multiplayer server is a lot of work, but
+more importantly, it's work that the people judging your game can't *see*.
 
 ![picture of squareoff notebook](notes3.jpg)
 
-Luckily for us, Jared (the "Server Whisperer") has a way of bending servers to
-his will.  Our experience building [Zorbio](http://zor.bio), also a web-based
-multiplayer game, was also a massive help.
+Luckily for us, Jared (the *Server Whisperer*) has a way of bending servers to
+his will.  We also relied on a our experience building
+[Zorbio](http://zor.bio), also a web-based multiplayer game.
 
 ## Don't kill yourself
 
@@ -74,9 +78,16 @@ And this one from [BlennosoftGames](http://ludumdare.com/compo/ludum-dare-35/?ac
 
 Those two fine people also submitted some pretty awesome games.
 
+## Retrospective
+
+It was an odd feeling on Monday night when the fog lifted and a new game sat
+before us.  The experience was exhilirating and exhausting.  I was
+simultaneously happy with the game, and really glad it was over.  For perhaps
+the first time, I felt like taking a break from programming for a little while.
+
 ![victory](victory.png)
 
-([view source][source])
+Oh, and [view source][source].
 
 [ld]: http://ludumdare.com/compo/
 [ldsq]: http://ludumdare.com/compo/ludum-dare-35/?action=preview&uid=91554
