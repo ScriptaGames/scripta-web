@@ -38,6 +38,10 @@ designs.  This time, the theme was *shapeshifting*.  Unfortunately, we didn't
 think of a way to adapt the game to fit the theme, so we went ahead with the
 original design.  Fortunately, the theme is optional!
 
+## End of the second day
+Here is what the game looked like after the end the second day
+![picture of work in progress](output1.gif)
+
 ## Multiplayer is hard
 
 Multiplayer games seem to be pretty rare in game jams, probably due to the
@@ -84,6 +88,8 @@ It was an odd feeling on Monday night when the fog lifted and a new game sat
 before us.  The experience was exhilirating and exhausting.  I was
 simultaneously happy with the game, and really glad it was over.  For perhaps
 the first time, I felt like taking a break from programming for a little while.
+
+![gameplay](gameplay.png)
 
 ![victory](victory.png)
 
