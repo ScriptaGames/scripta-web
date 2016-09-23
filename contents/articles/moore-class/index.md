@@ -1,19 +1,24 @@
 ---
-title: "Zorbio Math Lesson"
+title: "A Zorbio Math Lesson"
 author: michael
 date: 2016-09-21
 template: article.jade
 tags: education, math
 ---
 
-Jared and I spoke to students at Moore Middle School today about how videogames
-are built with math.
+Yesterday, Jared and I visited Moore Middle School.  We spoke to several math
+classes about how important math is to creating videogames.
 
-![](zorb5.jpeg)
+![photo during class](zorb5.jpeg)
 
-TODO say more things
+We showed the students three equations that we use in [Zorbio][zorbio] to
+control various aspects of the game.  We showed how tweaking equations can
+cause big changes inside the game.
+
+![demo equation](eq.png)
+
+The students had so many questions that we ran out of time in every class.  We
+were incredibly impressed with the students and hope to do more events like
+this in the future!
 
 [zorbio]: http://zor.bio
-[keymail]: mailto:admin@scripta.co
-[jared]: https://twitter.com/caramelcode
-[me]: https://twitter.com/mwcz
