@@ -9,6 +9,8 @@ tags: education, math
 Yesterday, Jared and I visited Moore Middle School.  We spoke to several math
 classes about how important math is to creating videogames.
 
+---
+
 ![photo during class](zorb5.jpeg)
 
 We showed the students three equations that we use in [Zorbio][zorbio] to
