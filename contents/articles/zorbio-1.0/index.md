@@ -12,6 +12,8 @@ now](http://zor.bio).
 
 Zorbio is a a web-based 3D eat-em-up.
 
+----
+
 <img src="game.jpg" alt="zorbio screenshot" />
 
 <img src="ui.png" alt="zorbio UI" />
