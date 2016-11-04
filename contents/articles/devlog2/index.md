@@ -3,7 +3,7 @@ title: "Zorbio Devlog 2: End of an Alpha"
 author: michael
 date: 2016-03-11
 template: article.jade
-tags: devlogs, alpha
+tags: devlogs, alpha, zorbio
 ---
 
 Greetings Zorbians!  Here are our reflections on the recently-completed open alpha preview!

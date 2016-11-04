@@ -3,7 +3,7 @@ title: "A Zorbio Math Lesson"
 author: michael
 date: 2016-09-21
 template: article.jade
-tags: education, math
+tags: education, math, zorbio
 ---
 
 Yesterday, Jared and I visited Moore Middle School.  We spoke to several math

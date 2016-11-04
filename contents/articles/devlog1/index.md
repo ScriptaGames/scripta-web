@@ -3,7 +3,7 @@ title: Zorbio Devlog 1
 author: michael
 date: 2016-02-29
 template: article.jade
-tags: devlogs, alpha
+tags: devlogs, alpha, zorbio
 ---
 
 Hello Zorbians!  This is the first devlog for our new game, Zorbio!
