@@ -3,7 +3,7 @@ title: Zorbio 1.0.4 Patch Notes
 author: michael
 date: 2016-11-14
 template: article.jade
-tags: devlogs, zorbio, patch-notes
+tags: devlogs, zorbio, patch-notes, patch-notes
 ---
 
 Zorbians, below you will find the patch notes for Zorbio version 1.0.4.

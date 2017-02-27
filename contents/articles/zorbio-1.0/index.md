@@ -3,7 +3,7 @@ title: Zorbio 1.0 eats the world!
 author: michael
 date: 2016-11-04
 template: article.jade
-tags: devlogs, zorbio, launch
+tags: devlogs, zorbio, launch, patch-notes
 ---
 
 Hello Zorbians!  We are thrilled to present you with the public release of
