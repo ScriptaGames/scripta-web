@@ -15,5 +15,5 @@ deploy:
 	git init . && \
 	git add . && \
 	git commit -m "Deploy"; \
-	# git push $(REPO) master:$(BRANCH) --force && \
-	# rm -rf .git
+	git push $(REPO) master:$(BRANCH) --force && \
+	rm -rf .git
