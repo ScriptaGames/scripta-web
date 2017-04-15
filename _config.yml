@@ -31,7 +31,7 @@ category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
-  - "tracer/**/*"
+  - "tracer/**/*" # add more skip_render entries like this for other static games/demos
 
 
 # Writing
