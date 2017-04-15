@@ -83,7 +83,8 @@ logo_text: "Scripta" # Add text logo instead of logo image
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type:
+  type: git
+  repo: git@github.com:ScriptaGames/ScriptaGames.github.io.git
 
 marked:
   breaks: false
