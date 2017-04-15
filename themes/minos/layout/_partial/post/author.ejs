@@ -1,0 +1,5 @@
+<% if (post.author && post.author.length){ %>
+  <div class="article-author">
+      <a class="article-author-link" href="<%= config.authors[post.author] %>"><%= post.author %></a>
+  </div>
+<% } %>
