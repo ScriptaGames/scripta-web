@@ -1,7 +1,10 @@
 ---
 title: Preparing for Ludum Dare 38
 date: 2017-04-15 00:01:56
+author: Michael
 tags:
+  - ludum-dare
+  - ld38
 ---
 
 Ludum Dare 38 is currently hurtling through space on a direct trajectory with
