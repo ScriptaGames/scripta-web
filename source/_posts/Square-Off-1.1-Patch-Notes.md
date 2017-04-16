@@ -17,6 +17,8 @@ weekend Square Off gets some much-needed love.  Here's what to look forward to!
 
 <img src="{% asset_path newdisc.jpg %}">
 
+Or you could [play Square Off now][sqoff].  It's 1v1 so bring a friend!
+
 <!-- more -->
 
 ### Improvements:
