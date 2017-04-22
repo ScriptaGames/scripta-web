@@ -32,6 +32,7 @@ code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
   - "tracer/**/*" # add more skip_render entries like this for other static games/demos
+  - "pityaboutearth/**/*" # add more skip_render entries like this for other static games/demos
 
 
 # Writing

@@ -32,3 +32,6 @@ Then tell hexo not to process those files:
   1. editing `_config.yml`
   2. find the `skip_render` section
   3. add `- "tracer/**/*"`
+  4. delete `db.json` if hexo refuses to build after this
+
+The game should now be available at the `/tracer` path.
