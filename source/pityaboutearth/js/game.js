@@ -17,7 +17,6 @@ var Game = function (_Phaser$Game) {
         _this.state.add('BootState', BootState, false);
         _this.state.add('PreloadState', PreloadState, false);
         _this.state.add('MenuState', MenuState, false);
-        _this.state.add('SearchingState', SearchingState, false);
         _this.state.add('PlayState', PlayState, false);
 
         _this.state.start('BootState');

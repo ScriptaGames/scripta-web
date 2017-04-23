@@ -22,11 +22,14 @@ var MenuState = function (_Phaser$State) {
         value: function create() {
             console.log('[menu] showing main menu');
 
+            if (config.SKIP_MENU) {
+                this.next();
+            }
+
             this.music = this.game.add.audio('MenuMusic');
             this.music.play();
 
             var bg = this.game.add.sprite(0, 0, 'background');
-            bg.scale.set(10, 10);
             bg.tint = 0x3f3f3f;
 
             this.scoreText = game.add.text(game.world.centerX, 4, "MAIN MENU", { fill: "#ffffff", align: "center" });
@@ -35,12 +38,21 @@ var MenuState = function (_Phaser$State) {
 
             var btnHum = game.add.button(game.world.centerX - 160, game.world.height - 80, 'btn-play', this.next, this);
             btnHum.anchor.set(0.5, 1);
-            btnHum.scale.set(4, 4);
         }
     }, {
         key: 'next',
         value: function next() {
-            this.game.stateTransition.to('SearchingState', true, false, { music: this.music });
+            this.game.stateTransition.to('PlayState');
+        }
+    }, {
+        key: 'shutdown',
+        value: function shutdown() {
+            this.music.stop();
+        }
+    }, {
+        key: 'story',
+        value: function story() {
+            return 'There is nowhere else, at least in the near future, to which our species could migrate... Like it or not, for the moment the Earth is where we make our stand.';
         }
     }]);
 
