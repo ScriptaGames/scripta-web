@@ -1,6 +1,4 @@
-"use strict";
-
-var config = Object.freeze({
+const config = Object.freeze({
 
     // skip menu for quick testing
     SKIP_MENU: false,
@@ -56,6 +54,6 @@ var config = Object.freeze({
     // HP/damage config values
     EARTH_HP: 280,
     COMET_DAMAGE: 10,
-    ASTEROID_DAMAGE: 4
+    ASTEROID_DAMAGE: 4,
 
 });
