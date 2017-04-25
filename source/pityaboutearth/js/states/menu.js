@@ -38,7 +38,7 @@ var MenuState = function (_Phaser$State) {
 
             this.fontSet = '! "#$%^\'()* +,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_abcdefghijklmnopqrstuvwxyz{|}~';
 
-            this.story = ['Humanity, listen up. This is', 'the Univese. I am sick of', 'your incessant nosing about.', 'The incoming asteroid should', 'resolve matters.', '       -- Yours, the Universe', '', '(Protect Earth while shuttles', 'ferry "repopulation experts"', 'to other, safer worlds)'];
+            this.story = ['Humanity, listen up. This is', 'the Universe. I am sick of', 'your incessant nosing about.', 'The incoming asteroid should', 'resolve matters.', '       -- Yours, the Universe', '', '(Protect Earth while shuttles', 'ferry "repopulation experts"', 'to other, safer worlds)'];
 
             var btnHum = this.game.add.button(this.game.world.centerX, this.game.world.height - 130, 'btn-play', this.next, this, 1, // over
             0, // out
