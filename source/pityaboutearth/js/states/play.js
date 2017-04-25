@@ -454,13 +454,9 @@ var PlayState = function (_Phaser$State) {
     }, {
         key: 'updateBarrierRotation',
         value: function updateBarrierRotation() {
-            var x = this.game.input.mousePointer.x - this.actors.barrier.position.x;
-            var y = this.game.input.mousePointer.y - this.actors.barrier.position.y;
-            var angle = -1 * Math.atan(x / y) + 2 * Math.PI;
-            if (y > 0) {
-                angle += Math.PI;
-            }
-            this.actors.barrier.rotation = angle;
+            var x = this.game.input.mousePointer.x;
+            var y = this.game.input.mousePointer.y;
+            this.actors.barrier.rotation = Math.PI / 2 + this.game.physics.arcade.angleToXY(this.actors.earth, x, y);
         }
     }, {
         key: 'updateCelestials',
