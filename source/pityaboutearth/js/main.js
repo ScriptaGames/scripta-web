@@ -1,3 +1,5 @@
+'use strict';
+
 console.log('[main] initializing');
 
-const game = new Game();
+var game = new Game();

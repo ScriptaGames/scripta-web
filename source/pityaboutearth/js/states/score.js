@@ -8,29 +8,37 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var MenuState = function (_Phaser$State) {
-    _inherits(MenuState, _Phaser$State);
+var ScoreState = function (_Phaser$State) {
+    _inherits(ScoreState, _Phaser$State);
 
-    function MenuState() {
-        _classCallCheck(this, MenuState);
+    function ScoreState() {
+        _classCallCheck(this, ScoreState);
 
-        return _possibleConstructorReturn(this, (MenuState.__proto__ || Object.getPrototypeOf(MenuState)).apply(this, arguments));
+        return _possibleConstructorReturn(this, (ScoreState.__proto__ || Object.getPrototypeOf(ScoreState)).apply(this, arguments));
     }
 
-    _createClass(MenuState, [{
+    _createClass(ScoreState, [{
+        key: 'init',
+        value: function init(_ref) {
+            var stats = _ref.stats;
+
+            this.stats = stats;
+        }
+    }, {
         key: 'create',
         value: function create() {
             var _this2 = this;
 
-            console.log('[menu] showing main menu');
+            console.log('[score] showing score menu');
 
             window.menu = this;
 
-            this.music = this.game.add.audio('MenuMusic', 0.7, true);
+            this.music = this.game.add.audio('VictoryMusic', 0.7, true);
             this.music.play();
 
             var bg = this.game.add.sprite(0, 0, 'background');
             bg.tint = 0x3f3f3f;
+            bg.alpha = 0.6;
 
             var logo = this.game.add.sprite(this.game.world.centerX, 120, 'logo');
             logo.anchor.set(0.5, 0);
@@ -38,9 +46,17 @@ var MenuState = function (_Phaser$State) {
 
             this.fontSet = '! "#$%^\'()* +,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_abcdefghijklmnopqrstuvwxyz{|}~';
 
-            this.story = ['"Earth?  It was a fine planet,', 'that is until the Universe', 'wearied of our incessant', 'nosing about and sent an', 'asteroid careening our way.', '', '(Protect Earth while shuttles', 'ferry "repopulation experts"', 'to other, safer worlds)'];
+            if (this.stats.transportsLaunched === 0) {
+                this.story = ['Really, you saved ZERO', 'people?  You monster.'];
+            } else if (this.stats.transportsLaunched < 5) {
+                this.story = ['You saved ' + this.stats.transportsLaunched * 1000, 'people... that\'s not nearly', 'enough to repopulate the', 'species.', '', 'Humanity is doomed.', '', '"Job well done!" -- Universe'];
+            } else if (this.stats.transportsLaunched >= 20) {
+                this.story = ['WOW, you saved', '' + this.stats.transportsLaunched * 1000, 'people!!!  Humanity survives!'];
+            } else {
+                this.story = ['Well done, you saved', '' + this.stats.transportsLaunched * 1000, 'people.  Humanity is probably', 'still doomed, but will have', 'a good time with the', 'repopulation effort.'];
+            }
 
-            var btnHum = this.game.add.button(this.game.world.centerX, this.game.world.height - 130, 'btn-play', this.next, this, 1, // over
+            var btnHum = game.add.button(game.world.centerX, game.world.height - 130, 'btn-play', this.next, this, 1, // over
             0, // out
             2 // down
             );
@@ -63,13 +79,7 @@ var MenuState = function (_Phaser$State) {
                 }, _this2);
                 acc += line.length * _this2.timePerChar;
             });
-
-            this.drawMissileHelp();
-            this.drawBarrierHelp();
         }
-    }, {
-        key: 'update',
-        value: function update() {}
     }, {
         key: 'next',
         value: function next() {
@@ -86,39 +96,9 @@ var MenuState = function (_Phaser$State) {
             return this.story[i];
         }
     }, {
-        key: 'drawBarrierHelp',
-        value: function drawBarrierHelp() {
-            var x = -370;
-            var y = 68;
-            var barrier = this.game.add.sprite(this.game.world.centerX + x - 100, this.game.world.height - 670 + y, 'barrier');
-            var font = this.game.add.retroFont('gelatin-font', 70, 110, this.fontSet, 18, 0, 0);
-            var text = this.game.add.image(80, 80, font);
-            text.scale.set(0.5, 0.5);
-            font.text = 'Barrier';
-            text.tint = 0x777777;
-            text.position.x = this.game.world.centerX + x;
-            text.position.y = this.game.world.height - 608 + y;
-        }
-    }, {
-        key: 'drawMissileHelp',
-        value: function drawMissileHelp() {
-            var x = 140;
-            var y = 40;
-            var mouse = this.game.add.sprite(this.game.world.centerX - 44 + x, this.game.world.height - 600 + y, 'mouse');
-            mouse.anchor.set(0.5, 0.5);
-
-            var font = this.game.add.retroFont('gelatin-font', 70, 110, this.fontSet, 18, 0, 0);
-            var text = this.game.add.image(80, 80, font);
-            text.scale.set(0.5, 0.5);
-            font.text = 'Missile';
-            text.tint = 0x777777;
-            text.position.x = this.game.world.centerX + x;
-            text.position.y = this.game.world.height - 608 + y;
-        }
-    }, {
         key: 'writeLine',
         value: function writeLine(line, index) {
-            var font = this.game.add.retroFont('gelatin-font', 70, 110, this.fontSet, 18, 0, 0);
+            var font = game.add.retroFont('gelatin-font', 70, 110, this.fontSet, 18, 0, 0);
             var text = this.game.add.image(80, 80, font);
             text.scale.set(0.5, 0.5);
             font.text = '';
@@ -134,5 +114,5 @@ var MenuState = function (_Phaser$State) {
         }
     }]);
 
-    return MenuState;
+    return ScoreState;
 }(Phaser.State);
