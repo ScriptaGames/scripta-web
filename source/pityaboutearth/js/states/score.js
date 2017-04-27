@@ -50,7 +50,7 @@ var ScoreState = function (_Phaser$State) {
                 this.story = ['Really, you saved ZERO', 'people?  You monster.'];
             } else if (this.stats.transportsLaunched < 10) {
                 this.story = ['You saved ' + this.stats.transportsLaunched * 1000, 'people... that\'s not nearly', 'enough to repopulate the', 'species.', '', 'Humanity is doomed.', '', '"Job well done!" -- Universe'];
-            } else if (this.stats.transportsLaunched >= 20) {
+            } else if (this.stats.transportsLaunched >= 25) {
                 this.story = ['WOW, you saved', '' + this.stats.transportsLaunched * 1000, 'people!!!  Humanity survives!'];
             } else {
                 this.story = ['Well done, you saved', '' + this.stats.transportsLaunched * 1000, 'people.  Humanity is probably', 'still doomed, but will have', 'a good time with the', 'repopulation effort.'];

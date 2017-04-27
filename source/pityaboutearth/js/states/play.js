@@ -33,13 +33,17 @@ var PlayState = function (_Phaser$State) {
             this.createStats();
 
             this.createActors();
-            this.generateTransportSpawnPoints();
             this.createMissileLauncher();
+
+            // Generate points that the transports will launch from
+            this.transportSpawnPoints = this.generateCirclePoints(20, 100);
+
+            // Generate the points that column barrages will come from
+            this.columnBarrageSpawnPoints = this.generateCirclePoints();
 
             this.playMusic();
 
-            this.difficulty = config.DIFFICULTY;
-            this.timeToNextBarrage = 15000;
+            this.timeToNextBarrage = config.MAX_TIME_BETWEEN_BARRAGE;
 
             this.barrageFunctions = [this.createSpiralBarrage, this.createZigZagBarrage, this.createColumnBarrage];
 
@@ -71,9 +75,9 @@ var PlayState = function (_Phaser$State) {
                 _this2.game.time.events.loop(3000, _this2.createAsteroid, _this2);
                 _this2.game.time.events.loop(6000, _this2.createComet, _this2);
                 _this2.game.time.events.loop(1000, function () {
-                    return _this2.difficulty += 0.02;
+                    return _this2.stats.difficulty += config.DIFFICULTY_INCREASE_RATE;
                 }, _this2); // Increase the difficulty
-                _this2.game.time.events.add(_this2.timeToNextBarrage, _this2.fireBarrage.bind(_this2), _this2);
+                _this2.game.time.events.add(config.MAX_TIME_BETWEEN_BARRAGE, _this2.fireBarrage.bind(_this2), _this2);
             }, this);
             this.game.time.events.add(13300, function () {
                 _this2.game.time.events.loop(5000, _this2.launchTransport, _this2);
@@ -133,7 +137,8 @@ var PlayState = function (_Phaser$State) {
                 transportsEscaped: 0,
                 transportsDestroyed: 0,
                 celestialsDestroyed: 0,
-                earthHP: config.EARTH_HP
+                earthHP: config.EARTH_HP,
+                difficulty: config.DIFFICULTY
             };
         }
     }, {
@@ -284,6 +289,8 @@ var PlayState = function (_Phaser$State) {
                 delayOffset = this.createSpiralBarrage(count, radius, width, offset, reverse, difficulty, createCelestialCallback, delayOffset);
                 reverse = !reverse;
             }
+
+            return delayOffset;
         }
     }, {
         key: 'createSpiralBarrage',
@@ -308,12 +315,12 @@ var PlayState = function (_Phaser$State) {
             // spawn asteroids in a spiral pattern
             if (!reverse) {
                 for (var i = 0 + offset; i < width + offset; i += angle) {
-                    delay += config.BARRAGE_HARD_DELAY / difficulty;
+                    delay += Math.max(config.BARRAGE_SINGLE_CEL_HARD_DELAY / difficulty, config.BARRAGE_SINGLE_CEL_MIN_DELAY);
                     this.createBarrageCelestial(i, radius, delay, difficulty, createCelestialCallback);
                 }
             } else {
                 for (var _i = width + offset; _i > 0 + offset; _i -= angle) {
-                    delay += config.BARRAGE_HARD_DELAY / difficulty;
+                    delay += Math.max(config.BARRAGE_SINGLE_CEL_HARD_DELAY / difficulty, config.BARRAGE_SINGLE_CEL_MIN_DELAY);
                     this.createBarrageCelestial(_i, radius, delay, difficulty, createCelestialCallback);
                 }
             }
@@ -336,7 +343,8 @@ var PlayState = function (_Phaser$State) {
             var delay = 0;
 
             for (var i = 0; i < numColumns; i++) {
-                points.push(this.getRandomOffscreenPoint());
+                var spawnPoint = this.columnBarrageSpawnPoints[this.between(0, this.columnBarrageSpawnPoints.length - 1)];
+                points.push(spawnPoint);
             }
 
             points.forEach(function (point) {
@@ -345,19 +353,23 @@ var PlayState = function (_Phaser$State) {
                         var celest = createCelestialCallback();
                         celest.position.x = point.x;
                         celest.position.y = point.y;
+                        celest.data.isBarrage = true;
 
                         // set initial velocity
                         var v = Phaser.Point.subtract(_this3.actors.earth.position, celest.position);
 
                         v.normalize();
-                        v.multiply(config.BARRAGE_SPEED * difficulty, config.BARRAGE_SPEED * difficulty);
+                        var multiplier = Math.min(config.BARRAGE_SPEED * difficulty, config.BARRAGE_MAX_MULTIPLIER);
+                        v.multiply(multiplier, multiplier);
 
                         celest.body.velocity.set(v.x, v.y);
                     }, _this3);
-                    delay += config.BARRAGE_HARD_DELAY / difficulty;
+                    delay += Math.max(config.BARRAGE_SINGLE_CEL_HARD_DELAY / difficulty, config.BARRAGE_SINGLE_CEL_MIN_DELAY);
                 }
-                delay += config.BARRAGE_HARD_DELAY / difficulty + 100;
+                delay += Math.max(config.BARRAGE_MIN_COLUMN_DELAY / difficulty, config.BARRAGE_MIN_COLUMN_DELAY);
             });
+
+            return delay;
         }
     }, {
         key: 'createBarrageCelestial',
@@ -371,12 +383,16 @@ var PlayState = function (_Phaser$State) {
                 var celest = createCelestialCallback();
                 celest.position.x = x;
                 celest.position.y = y;
+                celest.data.isBarrage = true;
 
                 // set initial velocity
                 var v = Phaser.Point.subtract(_this4.actors.earth.position, celest.position);
 
                 v.normalize();
-                v.multiply(config.BARRAGE_SPEED * difficulty, config.BARRAGE_SPEED * difficulty);
+                var multiplier = Math.min(config.BARRAGE_SPEED * difficulty, config.BARRAGE_MAX_MULTIPLIER);
+                v.multiply(multiplier, multiplier);
+
+                console.log('vel multiplier: ', multiplier);
 
                 celest.body.velocity.set(v.x, v.y);
             }, this);
@@ -473,7 +489,9 @@ var PlayState = function (_Phaser$State) {
     }, {
         key: 'updateCelestial',
         value: function updateCelestial(cel) {
-            this.game.physics.arcade.accelerateToObject(cel, this.actors.earth);
+            if (!cel.data.isBarrage) {
+                this.game.physics.arcade.accelerateToObject(cel, this.actors.earth);
+            }
         }
 
         /* misc functions */
@@ -648,13 +666,9 @@ var PlayState = function (_Phaser$State) {
     }, {
         key: 'fireBarrage',
         value: function fireBarrage() {
-            // First schedule next barrage
-            this.timeToNextBarrage = Math.min(this.timeToNextBarrage / this.difficulty, config.MAX_TIME_BETWEEN_BARRAGE);
-            this.timeToNextBarrage = Math.max(this.timeToNextBarrage, config.MIN_TIME_BETWEEN_BARRAGE);
-            this.game.time.events.add(this.timeToNextBarrage, this.fireBarrage.bind(this));
-
             // get random barrage function
             var barrageFunc = this.barrageFunctions[this.between(0, this.barrageFunctions.length - 1)];
+            var barrageDuration = void 0;
 
             var isComet = 100 * Math.random() <= config.PERCENT_CHANCE_OF_COMET_BARRAGE;
             var createCallback = this.createAsteroid.bind(this);
@@ -665,7 +679,7 @@ var PlayState = function (_Phaser$State) {
             if (barrageFunc.name == 'createColumnBarrage') {
                 var columnCount = this.between(2, 6);
                 var celestPerColumn = this.between(3, 10);
-                barrageFunc.bind(this)(columnCount, celestPerColumn, this.difficulty, createCallback);
+                barrageDuration = barrageFunc.bind(this)(columnCount, celestPerColumn, this.stats.difficulty, createCallback);
             } else {
                 var count = this.between(10, 30);
                 var width = this.between(120, 359);
@@ -677,8 +691,15 @@ var PlayState = function (_Phaser$State) {
                     width = this.between(60, 180);
                 }
 
-                barrageFunc.bind(this)(count, 1000, width, offset, reverse, this.difficulty, createCallback);
+                barrageDuration = barrageFunc.bind(this)(count, 1000, width, offset, reverse, this.stats.difficulty, createCallback);
             }
+
+            // First schedule next barrage
+            this.timeToNextBarrage = Math.min(this.timeToNextBarrage / this.stats.difficulty, config.MAX_TIME_BETWEEN_BARRAGE);
+            this.timeToNextBarrage = Math.max(this.timeToNextBarrage, config.MIN_TIME_BETWEEN_BARRAGE);
+            this.timeToNextBarrage += barrageDuration;
+            console.log("[play] time to next barrage: ", this.timeToNextBarrage, this.stats.difficulty, barrageDuration);
+            this.game.time.events.add(this.timeToNextBarrage, this.fireBarrage.bind(this));
         }
     }, {
         key: 'fireMissile',
@@ -921,25 +942,25 @@ var PlayState = function (_Phaser$State) {
             return f();
         }
     }, {
-        key: 'generateTransportSpawnPoints',
-        value: function generateTransportSpawnPoints() {
+        key: 'generateCirclePoints',
+        value: function generateCirclePoints() {
             var count = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 36;
+            var width = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1000;
 
-            if (this.isAlive()) {
-                this.transportSpawnPoints = [];
+            var x = void 0,
+                y = void 0;
+            var angle = 360 / count;
+            var circlePoints = [];
 
-                var x = void 0,
-                    y = void 0;
-                var angle = 360 / count;
+            // generate a list of x y points around a circle
+            for (var i = 0.1; i < 360; i += angle) {
+                x = this.game.world.centerX + width * Math.cos(this.game.math.degToRad(i));
+                y = this.game.world.centerY + width * Math.sin(this.game.math.degToRad(i));
 
-                // spawn asteroids in a circle
-                for (var i = 0.1; i < 360; i += angle) {
-                    x = this.game.world.centerX + 100 * Math.cos(i);
-                    y = this.game.world.centerY + 100 * Math.sin(i);
-
-                    this.transportSpawnPoints.push({ x: x, y: y });
-                }
+                circlePoints.push({ x: x, y: y });
             }
+
+            return circlePoints;
         }
     }]);
 
