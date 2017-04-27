@@ -15,7 +15,7 @@ After cloning:
 
 ## Deploy to scripta.co
 
-    hexo deploy -g
+    npm run deploy
 
 ## Add a game or demo to scripta.co
 
