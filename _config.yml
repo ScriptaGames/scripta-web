@@ -4,6 +4,7 @@
 
 # Site
 title: "Scripta Games"
+logo_text: "Scripta Games" # Add text logo instead of logo image
 subtitle:  Games for the modern web.
 description:
 author: Scripta, Inc
@@ -75,11 +76,28 @@ theme: minos
 
 # 'Minos' theme configuration
 menu:
-  Zorbio: tags/zorbio
-  Square Off: tags/square-off
-  Tracer: tags/tracer
+  Zorbio:
+      title: Zorbio
+      url: http://zorb.io
+      thumb: "/images/project-thumbs/zorbio.png"
+      tag: zorbio
+  PityAboutEarth:
+      title: Pity About Earth...
+      url: http://scripta.co/pityaboutearth/
+      thumb: "/images/project-thumbs/pity-about-earth.png"
+      tag: pity-about-earth
+  Tracer:
+      title: Tracer
+      url: http://scripta.co/tracer/
+      thumb: "/images/project-thumbs/tracer.jpg"
+      tag: tracer
+  Square Off:
+      title: Square Off
+      url: http://sqoff.com
+      thumb: "/images/project-thumbs/square-off.png"
+      tag: square-off
+
 share_addthis: true
-logo_text: "Scripta" # Add text logo instead of logo image
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html

@@ -1,0 +1,9 @@
+<ol class="game-list">
+    <% for (var i in theme.menu){ %>
+    <li class="<%- theme.menu[i].tag %>">
+        <a href="<%- theme.menu[i].url %>" target="_blank">
+            <img src="<%- theme.menu[i].thumb %>" alt="logo for game: <%- theme.menu[i].title %>">
+        </a>
+    </li>
+    <% } %>
+</ol>
