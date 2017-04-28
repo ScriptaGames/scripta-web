@@ -18,6 +18,11 @@ var BootState = function (_Phaser$State) {
     }
 
     _createClass(BootState, [{
+        key: 'preload',
+        value: function preload() {
+            this.game.load.image('loading-bar', 'images/big/loading-bar.png');
+        }
+    }, {
         key: 'create',
         value: function create() {
             console.log('[boot] booting');
