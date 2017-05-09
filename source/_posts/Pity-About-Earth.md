@@ -76,3 +76,4 @@ Thanks to our families, the players, the streamers who've played the game, and a
 [jared]: https://twitter.com/caramelcode
 [lance]: http://lance.gg/
 [crater]: https://ldjam.com/events/ludum-dare/38/crater-creator
+[veus]: https://ldjam.com/events/ludum-dare/38/pity-about-earth/a-retro-for-pity-about-earth
