@@ -61,9 +61,9 @@ var ScoreState = function (_Phaser$State) {
 
             if (this.stats.transportsLaunched === 0) {
                 this.story = ['Really, you saved ZERO', 'people?  You monster.'];
-            } else if (this.stats.transportsLaunched < 15) {
+            } else if (this.stats.transportsLaunched < 20) {
                 this.story = ['You saved ' + score, 'people... that\'s not nearly', 'enough to repopulate the', 'species.', '', 'Humanity is doomed.', '', '"Job well done!" -- Universe'];
-            } else if (this.stats.transportsLaunched >= 35) {
+            } else if (this.stats.transportsLaunched >= 45) {
                 this.previousMusic.fadeOut(100);
                 this.music.fadeIn(100, true);
                 this.story = ['WOW, you saved ' + score, 'people!!!  Humanity survives!'];
@@ -81,6 +81,7 @@ var ScoreState = function (_Phaser$State) {
             btnHum.anchor.set(0.5, 1);
             btnHum.onDownSound = this.game.add.audio('ButtonTap');
             btnHum.onOverSound = this.game.add.audio('Barrier');
+            btnHum.input.useHandCursor = false;
 
             if (config.SKIP_MENU) {
                 this.next();
@@ -107,6 +108,7 @@ var ScoreState = function (_Phaser$State) {
         key: 'shutdown',
         value: function shutdown() {
             this.music.stop();
+            this.previousMusic.stop();
         }
     }, {
         key: 'getLine',
