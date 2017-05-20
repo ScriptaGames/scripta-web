@@ -35,6 +35,7 @@ skip_render:  # add more skip_render entries like this for other static games/de
   - "tracer/**/*"
   - "pityaboutearth/**/*"
   - "pityaboutearth-beta/**/*"
+  - "pityaboutearth-ld38/**/*"
 
 
 # Writing

@@ -82,8 +82,8 @@ var PlayState = function (_Phaser$State) {
 
             this.game.time.events.add(10300, function () {
                 if (config.STRAYS_ENABLED) {
-                    _this2.game.time.events.loop(config.RATE_CREATE_ASTEROID, _this2.createAsteroid, _this2);
-                    _this2.game.time.events.loop(config.RATE_CREATE_COMET, _this2.createComet, _this2);
+                    _this2.game.time.events.add(config.RATE_CREATE_ASTEROID, _this2.singleAsteroidLoop, _this2);
+                    _this2.game.time.events.add(config.RATE_CREATE_COMET, _this2.singleCometLoop, _this2);
                 }
                 _this2.game.time.events.loop(config.RATE_RAISE_DIFFICULTY, function () {
                     return _this2.stats.difficulty += config.DIFFICULTY_INCREASE_RATE;
@@ -238,10 +238,10 @@ var PlayState = function (_Phaser$State) {
         key: 'createEarthHealthBar',
         value: function createEarthHealthBar() {
             console.log('[play] creating earth healthbar');
-            var earth = this.game.add.sprite(20, 20, 'earth-small', 0);
-            earth.scale.setTo(1.15, 1.15);
-            var healthbar = this.game.add.sprite(70, 20, 'healthbar', 0);
-            this.healthFilling = this.game.add.sprite(80, 30, 'health-filling', 0);
+            var earth = this.game.add.sprite(20, 20, 'earth-small');
+            earth.scale.setTo(0.5, 0.5);
+            var healthbar = this.game.add.sprite(70, 20, 'healthbar');
+            this.healthFilling = this.game.add.sprite(80, 30, 'health-filling');
         }
     }, {
         key: 'createScoreBar',
@@ -527,25 +527,27 @@ var PlayState = function (_Phaser$State) {
             perf.anchor.set(0.5, 0.5);
             perf.scale.set(0, 0);
 
-            var appearTween = this.game.add.tween(perf.scale).to({ x: 1.2, y: 1.2 }, 250, Phaser.Easing.Linear.None, true);
+            var appearTween = this.game.add.tween(perf.scale).to({ x: 0.75, y: 0.75 }, 250, Phaser.Easing.Linear.None, true);
 
             appearTween.onComplete.add(function () {
                 return shimmer.play(24, true);
             }, this);
-            this.game.time.events.add(1500, function () {
+            this.game.time.events.add(1000, function () {
                 shimmer.stop(true, true);
             }, this);
 
-            var disappearTween = this.game.add.tween(perf).to({
-                alpha: 0.0
-            }, 100, Phaser.Easing.Linear.None, false);
+            var disappearTween = this.game.add.tween(perf).to({ alpha: 0.0 }, 100, Phaser.Easing.Linear.None, false);
+            var disappearTween2 = this.game.add.tween(perf.scale).to({ x: 1.1, y: 1.1 }, 100, Phaser.Easing.Linear.None, false);
             disappearTween.onComplete.add(function () {
                 return perf.destroy();
             }, this);
 
-            var shimmer = perf.animations.add('shimmer');
+            var shimmer = perf.animations.add('shimmer', [9, 8, 7, 6, 5, 4, 3, 2, 1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
             shimmer.onComplete.add(function () {
                 return disappearTween.start();
+            }, this);
+            shimmer.onComplete.add(function () {
+                return disappearTween2.start();
             }, this);
         }
 
@@ -822,6 +824,27 @@ var PlayState = function (_Phaser$State) {
             }
         }
     }, {
+        key: 'singleAsteroidLoop',
+        value: function singleAsteroidLoop() {
+            var nextTime = this.getNextSpawnTime(config.RATE_CREATE_ASTEROID);
+            console.log('[play] Spawning next single asteroid. Next in: ', nextTime);
+            this.createAsteroid();
+            this.game.time.events.add(nextTime, this.singleAsteroidLoop, this);
+        }
+    }, {
+        key: 'singleCometLoop',
+        value: function singleCometLoop() {
+            var nextTime = this.getNextSpawnTime(config.RATE_CREATE_COMET);
+            console.log('[play] Spawning next single comet. Next in: ', nextTime);
+            this.createComet();
+            this.game.time.events.add(nextTime, this.singleCometLoop, this);
+        }
+    }, {
+        key: 'getNextSpawnTime',
+        value: function getNextSpawnTime(base) {
+            return Math.pow(this.stats.difficulty, 2) / 2 * 1000 + base;
+        }
+    }, {
         key: 'fireBarrage',
         value: function fireBarrage() {
             // get random barrage function
@@ -999,6 +1022,8 @@ var PlayState = function (_Phaser$State) {
             var fadeTween = this.game.add.tween(this.actors.earth).to({
                 alpha: 0
             }, 3600, Phaser.Easing.Linear.None, true);
+
+            fadeTween.onComplete.add(this.next, this);
             var scaleTween = this.game.add.tween(this.actors.earth.scale).to({ x: 2, y: 2 }, 3600, Phaser.Easing.Linear.None, true);
             scaleTween.onComplete.add(function () {
                 return _this9.actors.earth.destroy();
@@ -1063,8 +1088,6 @@ var PlayState = function (_Phaser$State) {
             burst2Tween.onComplete.add(function () {
                 return secondBurstEmitter.destroy();
             }, this);
-
-            this.game.time.events.add(5000, this.next, this);
 
             console.log('[play] KABOOOOOOM!');
         }

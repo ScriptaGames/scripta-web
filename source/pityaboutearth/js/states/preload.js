@@ -24,7 +24,7 @@ var PreloadState = function (_Phaser$State) {
 
             // loading bar
 
-            this.loadingBar = this.game.add.sprite(300, this.game.world.centerY, 'loading-bar');
+            this.loadingBar = this.game.add.sprite(config.CANVAS_WIDTH / 2 - 300, this.game.world.centerY, 'loading-bar');
             this.load.setPreloadSprite(this.loadingBar);
             this.loadingBar.anchor.set(0, 0.5);
 
@@ -41,12 +41,15 @@ var PreloadState = function (_Phaser$State) {
             this.game.load.image('dots', 'images/big/dotdotdot.png');
             this.game.load.image('uh-oh', 'images/big/uh-oh.png');
             this.game.load.image('person', 'images/big/person.png');
+            this.game.load.image('compass', 'images/big/touch-center.png');
+            this.game.load.image('touch_segment', 'images/big/touch-lead.png');
+            this.game.load.image('touch', 'images/big/touch-lead.png');
+            this.game.load.image('earth-small', 'images/big/earth-small.png');
+            this.game.load.image('healthbar', 'images/big/healthbar.png');
 
             // Sprite sheets
 
             this.game.load.spritesheet('earth-sheet', 'images/big/earth.png', 32 * 10, 32 * 10);
-            this.game.load.spritesheet('earth-small', 'images/earth.png', 32, 32);
-            this.game.load.spritesheet('healthbar', 'images/big/healthbar.png', 40 * 10, 4 * 10);
             this.game.load.spritesheet('health-filling', 'images/big/health-filling.png', 38 * 10, 2 * 10);
             this.game.load.spritesheet('earth-boom-sheet', 'images/big/earth-boom-sheet.png', 10, 10);
             this.game.load.spritesheet('earth-boom2-sheet', 'images/big/missile-boom.png', 10, 10);
@@ -57,7 +60,8 @@ var PreloadState = function (_Phaser$State) {
             this.game.load.spritesheet('transport-sheet', 'images/big/transport-sheet.png', 16 * 10, 16 * 10);
             this.game.load.spritesheet('missile-sheet', 'images/big/missile.png', 3 * 10, 14 * 10);
             this.game.load.spritesheet('btn-play', 'images/big/button-play.png', 64 * 10, 24 * 10);
-            // this.game.load.spritesheet('sheet', 'images/sheet.png', 44, 44, 30);
+            this.game.load.spritesheet('target-sheet', 'images/big/target-sheet.png', 15 * 10, 15 * 10);
+            this.game.load.spritesheet('perfect-sheet', 'images/big/perfect-sheet.png', 29 * 10, 7 * 10);
 
             this.game.load.image('gelatin-font', 'images/big/gelatin-font.png');
 

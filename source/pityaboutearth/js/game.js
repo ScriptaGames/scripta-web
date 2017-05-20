@@ -20,6 +20,8 @@ var Game = function (_Phaser$Game) {
         _this.state.add('PlayState', PlayState, false);
         _this.state.add('ScoreState', ScoreState, false);
 
+        _this.forceSingleUpdate = false; // decouple physics from framerate
+
         _this.state.start('BootState');
         return _this;
     }

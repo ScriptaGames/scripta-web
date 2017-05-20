@@ -20,9 +20,11 @@ var ScoreState = function (_Phaser$State) {
     _createClass(ScoreState, [{
         key: 'init',
         value: function init(_ref) {
-            var stats = _ref.stats;
+            var stats = _ref.stats,
+                music = _ref.music;
 
             this.stats = stats;
+            this.previousMusic = music;
         }
     }, {
         key: 'create',
@@ -34,7 +36,6 @@ var ScoreState = function (_Phaser$State) {
             window.menu = this;
 
             this.music = this.game.add.audio('VictoryMusic', 0.7, true);
-            this.music.play();
 
             var bg = this.game.add.sprite(0, 0, 'background');
             bg.tint = 0x3f3f3f;
@@ -46,14 +47,31 @@ var ScoreState = function (_Phaser$State) {
 
             this.fontSet = '! "#$%^\'()* +,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_abcdefghijklmnopqrstuvwxyz{|}~';
 
+            var score = this.stats.transportsLaunched * 1000;
+            var hiscore = JSON.parse(localStorage.hiscore || '0');
+
+            localStorage.hiscore = Math.max(hiscore, score);
+
+            console.log('[play] score is ' + score);
+            if (score > hiscore) {
+                console.log('[play] ' + score + ' > ' + hiscore + ', new HISCORE!!!');
+            } else {
+                console.log('[play] hiscore is still ' + hiscore);
+            }
+
             if (this.stats.transportsLaunched === 0) {
                 this.story = ['Really, you saved ZERO', 'people?  You monster.'];
-            } else if (this.stats.transportsLaunched < 10) {
-                this.story = ['You saved ' + this.stats.transportsLaunched * 1000, 'people... that\'s not nearly', 'enough to repopulate the', 'species.', '', 'Humanity is doomed.', '', '"Job well done!" -- Universe'];
-            } else if (this.stats.transportsLaunched >= 25) {
-                this.story = ['WOW, you saved', '' + this.stats.transportsLaunched * 1000, 'people!!!  Humanity survives!'];
+            } else if (this.stats.transportsLaunched < 20) {
+                this.story = ['You saved ' + score, 'people... that\'s not nearly', 'enough to repopulate the', 'species.', '', 'Humanity is doomed.', '', '"Job well done!" -- Universe'];
+            } else if (this.stats.transportsLaunched >= 45) {
+                this.previousMusic.fadeOut(100);
+                this.music.fadeIn(100, true);
+                this.story = ['WOW, you saved ' + score, 'people!!!  Humanity survives!'];
             } else {
-                this.story = ['Well done, you saved', '' + this.stats.transportsLaunched * 1000, 'people.  Humanity is probably', 'still doomed, but will have', 'a good time with the', 'repopulation effort.'];
+                this.music.play();
+                this.previousMusic.fadeOut(100);
+                this.music.fadeIn(100, true);
+                this.story = ['Well done, you saved ' + score, 'people.  Humanity is probably', 'still doomed, but will have', 'a good time with the', 'repopulation effort.'];
             }
 
             var btnHum = game.add.button(game.world.centerX, game.world.height - 130, 'btn-play', this.next, this, 1, // over
@@ -63,6 +81,7 @@ var ScoreState = function (_Phaser$State) {
             btnHum.anchor.set(0.5, 1);
             btnHum.onDownSound = this.game.add.audio('ButtonTap');
             btnHum.onOverSound = this.game.add.audio('Barrier');
+            btnHum.input.useHandCursor = false;
 
             if (config.SKIP_MENU) {
                 this.next();
@@ -89,6 +108,7 @@ var ScoreState = function (_Phaser$State) {
         key: 'shutdown',
         value: function shutdown() {
             this.music.stop();
+            this.previousMusic.stop();
         }
     }, {
         key: 'getLine',
@@ -103,7 +123,7 @@ var ScoreState = function (_Phaser$State) {
             text.scale.set(0.5, 0.5);
             font.text = '';
             // text.tint = 0x51B5E0;
-            text.position.x = 60;
+            text.position.x = this.game.world.centerX - 490;
             text.position.y = index * this.lineHeight + 636;
             var i = 0;
 

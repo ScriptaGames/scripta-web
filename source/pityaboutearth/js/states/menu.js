@@ -47,6 +47,7 @@ var MenuState = function (_Phaser$State) {
             btnHum.anchor.set(0.5, 1);
             btnHum.onDownSound = this.game.add.audio('ButtonTap');
             btnHum.onOverSound = this.game.add.audio('Barrier');
+            btnHum.input.useHandCursor = false;
 
             if (config.SKIP_MENU) {
                 this.next();
@@ -123,7 +124,7 @@ var MenuState = function (_Phaser$State) {
             text.scale.set(0.5, 0.5);
             font.text = '';
             // text.tint = 0x51B5E0;
-            text.position.x = 60;
+            text.position.x = this.game.world.centerX - 490;;
             text.position.y = index * this.lineHeight + 600;
             var i = 0;
 
