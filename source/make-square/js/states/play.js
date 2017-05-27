@@ -51,8 +51,6 @@ var PlayState = function (_Phaser$State) {
             this.createGrid();
             this.createButtons(this.blockCount);
 
-            this.sounds.music.play();
-
             this.done = false;
             this.debounceControls = _.throttle(this.updateControls, 100);
         }

@@ -35,7 +35,7 @@ var PreloadState = function (_Phaser$State) {
             var assetManifest = {
                 image: [['logo', 'images/big/logo.png'], ['intro', 'images/big/intro.png'], ['game-over', 'images/big/game-over.png'], ['playing', 'images/big/playing.png'], ['btn', 'images/big/btn.png']],
                 spritesheet: [['btn-play', 'images/big/button-play.png', 64 * 10, 24 * 10]],
-                audio: [['music', 'sounds/drumsong.wav.mp3'], ['drum1', 'sounds/drum1.wav.mp3'], ['drum2', 'sounds/drum2.wav.mp3']]
+                audio: []
             };
 
             _.forEach(assetManifest, function (assets, type) {

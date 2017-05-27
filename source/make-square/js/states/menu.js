@@ -38,13 +38,11 @@ var MenuState = function (_Phaser$State) {
             logo.anchor.set(0.5, 0);
             logo.scale.set(0.96, 0.96);
 
-            var btnHum = this.game.add.button(this.game.world.centerX, this.game.world.height - 130, 'btn-play', this.next, this, 1, // over
+            var btnHum = this.game.add.button(this.game.world.centerX, this.game.world.height - 130, 'btn', this.next, this, 1, // over
             0, // out
             2 // down
             );
             btnHum.anchor.set(0.5, 1);
-            btnHum.onDownSound = this.game.add.audio('drum1');
-            btnHum.onOverSound = this.game.add.audio('drum1');
             btnHum.input.useHandCursor = false;
         }
     }, {
