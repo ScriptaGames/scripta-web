@@ -59,15 +59,11 @@
          offset="0.7086218"
          style="stop-color:#ffe5af;stop-opacity:1" />
       <stop
-         style="stop-color:#d3e7ef;stop-opacity:1"
-         offset="0.80256879"
+         style="stop-color:#b7d7e6;stop-opacity:1"
+         offset="0.85146558"
          id="stop6233" />
       <stop
-         id="stop7586"
-         offset="0.89988339"
-         style="stop-color:#f6fbfd;stop-opacity:1" />
-      <stop
-         style="stop-color:#f6fbfd;stop-opacity:1"
+         style="stop-color:#fafffe;stop-opacity:1"
          offset="1"
          id="stop6215" />
     </linearGradient>
@@ -81,16 +77,6 @@
        y2="105.73954"
        gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(1,0,0,0.62499995,0.10755869,56.913294)" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient6217"
-       id="linearGradient7590"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(1,0,0,0.62499995,0.10755869,-189.0877)"
-       x1="72.568802"
-       y1="9.739543"
-       x2="72.568802"
-       y2="105.73954" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -99,9 +85,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.4"
-     inkscape:cx="16.069412"
-     inkscape:cy="113.81631"
+     inkscape:zoom="1.979899"
+     inkscape:cx="92.74925"
+     inkscape:cy="-15.739435"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
@@ -139,29 +125,14 @@
      inkscape:groupmode="layer"
      id="layer1"
      transform="translate(-56.676365,-63.0005)">
-    <g
-       id="g7594"
+    <rect
+       style="opacity:0.98999999;fill:url(#linearGradient6219);fill-opacity:1;stroke:none;stroke-width:0.8696264;stroke-linecap:round;stroke-linejoin:round"
+       id="rect6211"
+       width="16"
+       height="60"
+       x="56.676365"
+       y="63.0005"
        inkscape:export-xdpi="2540"
-       inkscape:export-ydpi="2540">
-      <rect
-         inkscape:export-ydpi="2540"
-         inkscape:export-xdpi="2540"
-         y="63.0005"
-         x="56.676365"
-         height="60"
-         width="16"
-         id="rect6211"
-         style="opacity:0.98999999;fill:url(#linearGradient6219);fill-opacity:1;stroke:none;stroke-width:0.8696264;stroke-linecap:round;stroke-linejoin:round" />
-      <rect
-         transform="scale(1,-1)"
-         style="opacity:0.98999999;fill:url(#linearGradient7590);fill-opacity:1;stroke:none;stroke-width:0.8696264;stroke-linecap:round;stroke-linejoin:round"
-         id="rect7588"
-         width="16"
-         height="60"
-         x="56.676365"
-         y="-183.0005"
-         inkscape:export-xdpi="2540"
-         inkscape:export-ydpi="2540" />
-    </g>
+       inkscape:export-ydpi="2540" />
   </g>
 </svg>
