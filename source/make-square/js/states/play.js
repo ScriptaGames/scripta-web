@@ -43,7 +43,7 @@ var PlayState = function (_Phaser$State) {
             this.btns = [];
 
             this.gridSize = 10;
-            this.blockCount = 2 * 2;
+            this.blockCount = 4 * 4;
 
             this.createActors();
             this.createStats();
@@ -118,7 +118,11 @@ var PlayState = function (_Phaser$State) {
     }, {
         key: "canMove",
         value: function canMove(x, y, xd, yd) {
-            return this.grid[y + yd][x + xd] === 0;
+            try {
+                return this.grid[y + yd][x + xd] === 0;
+            } catch (e) {
+                return false;
+            }
         }
     }, {
         key: "move",
