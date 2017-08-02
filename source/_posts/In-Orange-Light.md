@@ -11,13 +11,13 @@ categories:
 author: Michael
 ---
 
-As I descend from the mountain peak, I contemplate the Winter.
+Ludum Dare 39 rocketed past Earth last weekend.  
+
+<img src="{% asset_path in-orange-light-scenery.png %}">
 
 This past weekend was Ludum Dare 39.  After three Ludum Dare Jam (easy mode) entries, I'd been looking for a chance to try out the compo (hard mode).  Since Jared had to sit out this time, it was the perfect opportunity.
 
 9pm, the theme arives.  "Running out of power"
-
-<img src="{% asset_path in-orange-light-scenery.png %}">
 
 Starting with a set of rectangles, and using a photo of the Blue Ridge Mountains as a reference, I tweaked vector paths into something resembling mountains.
 
@@ -56,22 +56,33 @@ And they accomplished all that with 3D models my Amiga 500 could have rendered (
 
     genEl.addEventListener('click', function () {
         if (generator.playing) {
+            genEl.classList.remove('on');
             generator.pause();
         }
         else {
+            genEl.classList.add('on');
             generator.play();
         }
     });
     heatEl.addEventListener('click', function () {
         if (heater.playing) {
+            heatEl.classList.remove('on');
             heater.pause();
         }
         else {
+            heatEl.classList.add('on');
             heater.play();
         }
     });
 </script>
 
+## Lessons learned
+
+One, working solo is much harder than working on a team, and not just because a team gets more work done.  Staying focused and productive is much easier 
+
+Two, system-of-numbers games need careful design and planning.  In Orange Light is essentially a small spreadsheet where you must tweak certain numbers in order to keep other numbers within a desired range.  It seemed very simple at first, but a slew of problems arose after I *thought* I had finished the simulation.
+
+Three, as I mentioned in the section about Kentucky Route Zero, atmosphere is very difficult to execute on.
 
 
 [kr0]: http://kentuckyroutezero.com/
