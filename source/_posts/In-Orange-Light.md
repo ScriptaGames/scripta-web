@@ -11,40 +11,99 @@ categories:
 author: Michael
 ---
 
-Ludum Dare 39 rocketed past Earth last weekend.  
+Three years ago, surrounded by monitors in a dark, blue-hued room, a particular screen caught my eye.  My girlfriend's (now wife's) eye was caught by the same screen, and we crossed the room to investigate.
+
+<img src="{% asset_path kr0-emp.jpg %}">
+
+We were visiting the *Indie Game Revolution* exhibit at EMP in Seattle, and what we found on that screen was Scene I, Act I of [Kentucky Route Zero][kr0].  It took me three years, but I finally rediscovered KR0 a few weeks ago.  Now, having (well, nearly) finished it, I'm convinced it's a masterpiece.  The game's atmosphere is so rich, so effortlessly gripping, that *actually being there* would be less compelling.
+
+<img src="{% asset_path kr0.jpg %}">
+
+And they accomplished all that with 3D models my Amiga 500 could have rendered (sans lighting).  Strategic omission of detail really has a way of setting fire to an imagination.
+
+The atmosphere and storytelling from that game have been rolling around in my mind since then.  With Ludum Dare 39 approaching, I'd decided to try my novice hand at recreating some of its techniques.
+
+## Ludum Dare 39
+
+Jared and I have participated in the Ludum Dare *Jam* [three][ld35] [whole][ld37] [times][ld38], and we've been growing curious about the *Compo* (aka, Hard Mode).  Jared decided to sit this one out, so I took the opportunity to enter my first Compo, which is an exclusively solo endeavor.  The theme was "Running out of power".  Without any further ado, here is my game, [In Orange Light][iol].
 
 <img src="{% asset_path in-orange-light-scenery.png %}">
 
-This past weekend was Ludum Dare 39.  After three Ludum Dare Jam (easy mode) entries, I'd been looking for a chance to try out the compo (hard mode).  Since Jared had to sit out this time, it was the perfect opportunity.
+## Day 1 of 2, the foundation
 
-9pm, the theme arives.  "Running out of power"
+With Kentucky Route Zero fresh in my mind, I wanted to branch out from my usual arcade-style game and try to make something a little more moody and atmospheric.  Based on the "running out of power" theme, my idea was a survival game where you try to balance scant resources to survive winter in a frigid mountain cabin.
+
+To get the math out of the way, I spent the first day implementing a basic simulation of warmth, food, fuel, a generator, heater, and all their interactions.  I also created some placeholder art, so I'd have something to click on and cringe at.
+
+<img src="{% asset_path placeholder-art.png %}">
+
+## Day 2 of 2, some polish
+
+I spent about half of Sunday improving the visuals, and the other half fixing bugs in the simulation I'd created on Saturday.
+
+### Making it mountainous
 
 Starting with a set of rectangles, and using a photo of the Blue Ridge Mountains as a reference, I tweaked vector paths into something resembling mountains.
 
 <img src="{% asset_path making-mountains.gif %}">
 
+### Sunrise, day, sunset, night, repeat
 
-## Inspirations
+<style type="text/css" rel="stylesheet">
+#iol-sky-demo {
+    float: right;
+    padding-left: 20px;
+    pointer-events: none;
+}
+@media (max-width: 600px) {
+    #iol-sky-demo {
+        float: none;
+    }
+    #iol-sky-demo canvas {
+        margin: 0 auto;
+    }
+}
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+</style>
 
-Three years ago, across a dark, blue-hued, and screen-filled room, a particular screen caught my eye.  My girlfriend's (now wife's) eye was caught by the same screen, and we went to investigate.
+The plain blue mountains lacked luster, and a day/night cycle seemed like a fitting way to bring them some life.
 
-<img src="{% asset_path kr0-emp.jpg %}">
+<div id="iol-sky-demo"></div>
 
-We were visiting the Indie Game Revolution exhibit at the EMP museum in Seattle. and on the screen was Scene I, Act I of [Kentucky Route Zero][kr0].  It took me three years, but I finally rediscovered KR0, and having (well, nearly) finished it, I'm ready to call it a masterpiece.  The game's atmosphere is so rich, so effortlessly gripping, that *actually being there* would be less compelling.
+I made the mountain sprites greyscale and multiplied them against two very tall, sliding sky gradients.  Here's a visual of the technique, zoomed way out so you can see the two sky images playing leap frog as they slide up the screen. (This is a live demo, not a video.)
 
-<img src="{% asset_path kr0.jpg %}">
+To see the full sky sunrise and sunset, give [In Orange Light][iol] a play, but don't dismiss the text.  That way, time will be paused and you won't starve of freeze.
 
-And they accomplished all that with 3D models my Amiga 500 could have rendered (sans lighting).  
+<div class="clearfix"></div>
 
-<img src="{% asset_path placeholder-art.png %}">
-<img src="{% asset_path sky.png %}">
+### Sound effects
 
-{% asset_path daynight.mp4 %}
+The game has a few sound effects.  The heater's electric hum, the generator's rumble, and the growing, clawing sound of hunger.  To create these, I used [BeepBox][bbox], a chiptune music sequencer.  It's meant for music, but I was able to coax some sound effects out of it.  Here are two of the sound effects, hit `Play` to hear them through the BeepBox synthesizer live on this page.
 
-[{% asset_img logo-square.png %}<br>Play Pity About Earth][play] <br>
+<div id="sfx">
+    <p>
+        <button id="generator">Play</button> Generator  <small><a href="http://beepbox.co/#5s7k0l00e00t7m1a7g00j0i1r1w81445111f30222000d11000101c00023000h40000000v20214050o3000b8p1xkNVAWE6CCIdttddsB1xkn3qmrx-GabxL0">(view in BeepBox)</a></small>
+    </p>
+    <p>
+        <button id="heater">Play</button> Heater  <small><a href="http://beepbox.co/#5s7k0l00e00t7m1a7g00j0i1r1w81445111f30222000d11000101c00023000h40000000v20214050o3000bgp1xkNVAWE6CCIdttddsB1xkn3qmrx-GabxL0">(view in BeepBox)</a></small>
+    </p>
+</div>
 
-<button id="generator">Generator</button>
-<button id="heater">Heater</button>
+BeepBox is a very approachable sequencer.  Here's what the "generator ran out of fuel" sound effect looks like inside the tool.
+
+{% asset_img generator-off.png "A screenshot of the 'generator fuel empty' sound in BeepBox" %}
+
+<style>
+    #sfx button {
+        padding: 10px;
+        text-align: center;
+        font-family: monospace;
+    }
+</style>
 
 <script src="{% asset_path beepbox_synth.js %}"></script>
 <script>
@@ -57,20 +116,24 @@ And they accomplished all that with 3D models my Amiga 500 could have rendered (
     genEl.addEventListener('click', function () {
         if (generator.playing) {
             genEl.classList.remove('on');
+            genEl.textContent = 'Play ';
             generator.pause();
         }
         else {
             genEl.classList.add('on');
+            genEl.textContent = 'Pause';
             generator.play();
         }
     });
     heatEl.addEventListener('click', function () {
         if (heater.playing) {
             heatEl.classList.remove('on');
+            heatEl.textContent = 'Play ';
             heater.pause();
         }
         else {
             heatEl.classList.add('on');
+            heatEl.textContent = 'Pause';
             heater.play();
         }
     });
@@ -78,13 +141,37 @@ And they accomplished all that with 3D models my Amiga 500 could have rendered (
 
 ## Lessons learned
 
-One, working solo is much harder than working on a team, and not just because a team gets more work done.  Staying focused and productive is much easier 
+First, working solo is much harder than working on a team, but not only because a team can get more work done.  Maintaining the sense of urgency, productivity, and focus was nearly impossible without a co-conspirator.
 
-Two, system-of-numbers games need careful design and planning.  In Orange Light is essentially a small spreadsheet where you must tweak certain numbers in order to keep other numbers within a desired range.  It seemed very simple at first, but a slew of problems arose after I *thought* I had finished the simulation.
+Second, system-of-numbers games need careful design and planning.  In Orange Light is essentially a small spreadsheet where you click buttons in order to keep some numbers within a desired range.  It seemed very simple at first, but a slew of problems arose after I *thought* I had finished the simulation.
 
-Three, as I mentioned in the section about Kentucky Route Zero, atmosphere is very difficult to execute on.
+Third, and unsurprisingly, immersion and atmosphere are very difficult to execute on.  I wouldn't call the game *fun*, but it was a successful experiment.
 
+Fourth, and last, if a game has *meters*, and those meters indicate how Good/Bad something is, make sure they all go in the same direction.  In my game, the Warmth meter wants to be high, and the Hunger meter wants to be low.  That's been the single biggest point of absolutely understandable confusion.
+
+Lessons learned!
+
+<!-- IOL sky demo -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/phaser-ce/2.8.2/phaser.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/es6-promise/4.1.1/es6-promise.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.3/fetch.min.js"></script>
+<script src="{% asset_path lib/phaser-state-transition-plugin.min.js %}"></script>
+<script src="{% asset_path js/config.js %}"></script>
+<script src="{% asset_path js/sim.js %}"></script>
+<script src="{% asset_path js/states/boot.js %}"></script>
+<script src="{% asset_path js/states/preload.js %}"></script>
+<script src="{% asset_path js/states/menu.js %}"></script>
+<script src="{% asset_path js/states/play.js %}"></script>
+<script src="{% asset_path js/game.js %}"></script>
+<script src="{% asset_path js/main.js %}"></script>
+<!-- /IOL sky demo -->
 
 [kr0]: http://kentuckyroutezero.com/
 [iol]: http://scripta.co/in-orange-light/
 [ldiol]: https://ldjam.com/events/ludum-dare/39/in-orange-light
+[jared]: https://twitter.com/caramelcode
+[ld35]: http://ludumdare.com/compo/ludum-dare-35/?action=preview&uid=91554
+[ld37]: http://ludumdare.com/compo/ludum-dare-37/?action=preview&uid=91554
+[ld38]: https://ldjam.com/events/ludum-dare/38/pity-about-earth
+[bbox]: http://beepbox.co
