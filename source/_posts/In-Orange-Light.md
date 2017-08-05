@@ -29,6 +29,8 @@ Jared and I have participated in the Ludum Dare *Jam* [three][ld35] [whole][ld37
 
 <img src="{% asset_path in-orange-light-scenery.png %}">
 
+[View the Ludum Dare entry][ldiol]
+
 ## Day 1 of 2, the foundation
 
 With Kentucky Route Zero fresh in my mind, I wanted to branch out from my usual arcade-style game and try to make something a little more moody and atmospheric.  Based on the "running out of power" theme, my idea was a survival game where you try to balance scant resources to survive winter in a frigid mountain cabin.
@@ -145,7 +147,7 @@ First, working solo is much harder than working on a team, but not only because 
 
 Second, system-of-numbers games need careful design and planning.  In Orange Light is essentially a small spreadsheet where you click buttons in order to keep some numbers within a desired range.  It seemed very simple at first, but a slew of problems arose after I *thought* I had finished the simulation.
 
-Third, and unsurprisingly, immersion and atmosphere are very difficult to execute on.  I wouldn't call the game *fun*, but it was a successful experiment.
+Third, and unsurprisingly, immersion and atmosphere are very difficult to execute on.  As a first experiment, I'm pretty happy with how things turned out.
 
 Fourth, and last, if a game has *meters*, and those meters indicate how Good/Bad something is, make sure they all go in the same direction.  In my game, the Warmth meter wants to be high, and the Hunger meter wants to be low.  That's been the single biggest point of absolutely understandable confusion.
 
