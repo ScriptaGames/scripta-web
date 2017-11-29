@@ -64,7 +64,7 @@ tags:
 
 
 ## CPU Optimizations
-<img src="{% asset_path cpu_performance_increase.png %}">
+<img src="{% asset_path cpu_performance_increase.jpg %}">
 
 
 ## Relaxed Name Filter
