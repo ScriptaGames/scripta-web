@@ -1,8 +1,20 @@
 ---
 title: Zorb.io Remastered
 date: 2017-11-23 11:31:00
+permalink: Zorbio-Remastered
 tags:
+  - zorbio
+  - iogames
+  - webgl
+  - gamedev
+  - threejs
+  - zorb.io
+  - remastered
+categories:
+  - Zorbio
+author: Jared Sprague
 ---
+
 ![Zorbio Remastered Header](/articles/Zorbio-Remastered/zorbio_header_zoom_reddit.png)
 
 <!-- more -->
