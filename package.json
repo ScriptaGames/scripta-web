@@ -22,6 +22,7 @@
   },
   "scripts": {
     "deploy": "rm db.json; rm -rf .deploy_git; hexo deploy -g",
+    "clean": "rm db.json; rm -rf .deploy_git",
     "start": "hexo server"
   }
 }
