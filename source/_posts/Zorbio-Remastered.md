@@ -15,7 +15,15 @@ categories:
 author: Jared Sprague
 ---
 
-![Zorbio Remastered Header](/articles/Zorbio-Remastered/zorbio_header_zoom_reddit.png)
+<img alt="Zorbio Header" src="{% asset_path zorbio_header_zoom_reddit.png %}">
+
+We are exited to announce Zorbio Remastered!  This is the largest set of
+updates that we've made to the game since we launched 1 year ago.
+Highlights include new original sound track composed especially for
+Zorbio, revamped UI and logo, new skins, natural AI curve paths,
+steering helper, food chains, and more!  Read on to learn the details
+about all the updates.
+
 
 <!-- more -->
 
