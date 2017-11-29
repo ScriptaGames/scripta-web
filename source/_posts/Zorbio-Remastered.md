@@ -1,5 +1,5 @@
 ---
-title: Zorbio Remastered
+title: Zorb.io Remastered
 date: 2017-11-23 11:31:00
 tags:
 ---
@@ -8,7 +8,6 @@ tags:
 <!-- toc -->
 
 # New Features
-We've added many new features!  Add more stuff here
 
 ## Original Sound Track
 
@@ -37,7 +36,7 @@ We've added many new features!  Add more stuff here
 
 ## Natrual AI Curve Paths
 
-<img src="{% asset_path ai_curves.gif %}">
+<img width="800" src="{% asset_path ai_curves.gif %}">
 <img src="{% asset_path more_ai_curves_screenshot.png %}">
 <img src="{% asset_path many_knot_curves.png %}">
 
