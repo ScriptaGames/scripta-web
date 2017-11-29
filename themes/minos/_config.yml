@@ -1,6 +1,8 @@
 # Content
 toc: false # This is set false otherwise a broken conflicts with hexo-toc plugin
 
+excerpt_link: Read More
+
 # Scripta.co Google Analytics
 google_analytics: UA-73203609-2
 

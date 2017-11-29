@@ -5,6 +5,8 @@ tags:
 ---
 ![Zorbio Remastered Header](/articles/Zorbio-Remastered/zorbio_header_zoom_reddit.png)
 
+<!-- more -->
+
 <!-- toc -->
 
 # New Features
@@ -14,6 +16,7 @@ tags:
 <iframe width="800" height="450" src="https://www.youtube.com/embed/K81oyT1X8Jo" frameborder="0" allowfullscreen></iframe>
 
 <img alt="zorbio ost wip" width="282" src="{% asset_path zorbio_ost_wip.jpg %}"> <img alt="zorbio track wip"  width="513" src="{% asset_path zorbio_track.jpg %}">
+
 
 
 ## New Logo and Revamped UI

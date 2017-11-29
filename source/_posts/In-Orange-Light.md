@@ -15,6 +15,8 @@ Three years ago, surrounded by monitors in a dark, blue-hued room, a particular 
 
 <img src="{% asset_path kr0-emp.jpg %}">
 
+<!-- more -->
+
 We were visiting the *Indie Game Revolution* exhibit at EMP in Seattle, and what we found on that screen was Scene I, Act I of [Kentucky Route Zero][kr0].  It took me three years, but I finally rediscovered KR0 a few weeks ago.  Now, having (well, nearly) finished it, I'm convinced it's a masterpiece.  The game's atmosphere is so rich, so effortlessly gripping, that *actually being there* would be less compelling.
 
 <img src="{% asset_path kr0.jpg %}">
