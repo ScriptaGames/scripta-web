@@ -31,12 +31,9 @@ We've added many new features!  Add more stuff here
 
 ## New Skins
 
-<img src="{% asset_path jupiter.png %}">
-<img src="{% asset_path mars.png %}">
-<img src="{% asset_path venus.png %}">
-<img src="{% asset_path neptune.png %}">
-<img src="{% asset_path uranus.png %}">
-<img src="{% asset_path choose_skin.gif %}">
+<img width="395" src="{% asset_path jupiter.png %}"> <img width="395" src="{% asset_path mars.png %}">
+<img width="395" src="{% asset_path venus.png %}"> <img width="395" src="{% asset_path neptune.png %}">
+<img width="395" src="{% asset_path uranus.png %}"> <img width="395" src="{% asset_path choose_skin.gif %}">
 
 
 ## Natrual AI Curve Paths
