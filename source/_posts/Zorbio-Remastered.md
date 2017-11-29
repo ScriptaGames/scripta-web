@@ -12,10 +12,9 @@ We've added many new features!  Add more stuff here
 
 ## Original Sound Track
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/K81oyT1X8Jo" frameborder="0" allowfullscreen></iframe>
+<iframe width="800" height="450" src="https://www.youtube.com/embed/K81oyT1X8Jo" frameborder="0" allowfullscreen></iframe>
 
-![Zorbio OST work-in-progress](/articles/Zorbio-Remastered/zorbio_ost_wip.jpg)
-![Zorbio song track](/articles/Zorbio-Remastered/zorbio_track.jpg)
+<img width="282" src="{% asset_path zorbio_ost_wip.jpg %}"> <img width="513" src="{% asset_path zorbio_track.jpg %}">
 
 
 ## New Logo and Revamped UI
