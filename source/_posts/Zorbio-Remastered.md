@@ -28,9 +28,9 @@ about all the updates.
 
 <!-- toc -->
 
-# New Features
+## New Features
 
-## Original Sound Track
+### Original Sound Track
 
 <iframe width="800" height="450" src="https://www.youtube.com/embed/K81oyT1X8Jo" frameborder="0" allowfullscreen></iframe>
 
@@ -38,7 +38,7 @@ about all the updates.
 
 
 
-## New Logo and Revamped UI
+### New Logo and Revamped UI
 
 <img alt="zorbio logo idea 1" src="{% asset_path logo_idea1.png %}">
 <img alt="zorbio logo idea 2" src="{% asset_path logo_idea2.png %}">
@@ -49,21 +49,21 @@ about all the updates.
 </video>
 
 
-## New Skins
+### New Skins
 
 <img alt="Jupiter skin" width="395" src="{% asset_path jupiter.png %}"> <img alt="Mars skin"  width="395" src="{% asset_path mars.png %}">
 <img alt="Venus skin"  width="395" src="{% asset_path venus.png %}"> <img alt="Neptune skin"  width="395" src="{% asset_path neptune.png %}">
 <img alt="Uranus skin"  width="395" src="{% asset_path uranus.png %}"> <img alt="skin select"  width="395" src="{% asset_path choose_skin.gif %}">
 
 
-## Natrual AI Curve Paths
+### Natrual AI Curve Paths
 
 <img alt="AI curve paths"  width="800" src="{% asset_path ai_curves.gif %}">
 <img alt="Random AI curves"  src="{% asset_path more_ai_curves_screenshot.png %}">
 <img alt="Fun with curve paths"  src="{% asset_path many_knot_curves.png %}">
 
 
-## Steering Helper
+### Steering Helper
 
 <img alt="Steering toast"  src="{% asset_path steering_toast.png %}">
 
@@ -72,30 +72,30 @@ about all the updates.
 </video>
 
 
-## Food Chains
+### Food Chains
 
 <img alt="Food chains"  src="{% asset_path food_chains.png %}">
 
 
-## Daily Leaderboard
+### Daily Leaderboard
 
 <img alt="Daily high scores"  src="{% asset_path daily_highscores.png %}">
 
 
-# Fixes
+## Fixes
 
 
-## CPU Optimizations
+### CPU Optimizations
 <img alt="CPU Optimizations"  src="{% asset_path cpu_performance_increase.jpg %}">
 
 
-## Relaxed Name Filter
+### Relaxed Name Filter
 
 
-## Mobile Steering
+### Mobile Steering
 
 
-# Thank you! &lt;3
+## Thank you! &lt;3
 
 <img src="{% asset_path heart.gif %}">
 
