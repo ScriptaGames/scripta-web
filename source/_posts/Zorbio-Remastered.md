@@ -60,7 +60,7 @@ Roughly twenty iterations later, here is the new Zorbio logo.
 The live in-game logo is animated.
 
 <video loop controls autoplay width="1008" height="624">
-<source src="{% asset_path ui_logo.webm %}" type="video/webm"></source>
+<source src="{% asset_path ui_logo.mp4 %}" type="video/mp4"></source>
 </video>
 
 
@@ -118,7 +118,7 @@ Experienced players have mastered Zorbio's steering system, but it remains a dif
 In addition, the game has a new custom cursor which dynamically rotates to indicate the direction and sharpness of a players' steering.
 
 <video loop controls autoplay width="1008" height="624">
-<source src="{% asset_path steering_cursor.webm %}" type="video/webm"></source>
+<source src="{% asset_path steering_cursor.mp4 %}" type="video/mp4"></source>
 </video>
 
 
