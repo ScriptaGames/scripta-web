@@ -8,7 +8,6 @@ tags:
   - webgl
   - gamedev
   - threejs
-  - zorb.io
   - remastered
 categories:
   - Zorbio
