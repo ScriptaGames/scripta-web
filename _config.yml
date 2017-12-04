@@ -39,6 +39,7 @@ skip_render:  # add more skip_render entries like this for other static games/de
   - "make-square/**/*"
   - "in-orange-light/**/*"
   - "**/*.js"
+  - "ld40/**/*"
 
 
 # Writing
